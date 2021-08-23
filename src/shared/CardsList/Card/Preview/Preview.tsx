@@ -7,10 +7,17 @@ import stylesPreview from './preview.css';
  be more convenient to make it separate from everything.
  */
 
-export function Preview() {
+interface IPreviewProps {
+  cardInfo: {
+    imageUrl: string;
+    imageAlt: string;
+  };
+}
+
+export function Preview(props: IPreviewProps) {
   return (
     <div className={stylesPreview.preview}>
-      <img src="http://placeimg.com/640/480/nature" alt="" className={stylesPreview.previewImg} />
+      <img src={props.cardInfo.imageUrl} alt={props.cardInfo.imageUrl} className={stylesPreview.previewImg} />
     </div>
   );
 }

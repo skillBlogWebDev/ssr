@@ -9,26 +9,38 @@ import stylesUserBlock from './userBlock.css';
  This will give me a better understanding of his data.
 */
 
-export function TextContent() {
+interface ITextContentProps {
+  cardInfo: {
+    text: string;
+    postUrl: string;
+    name: string;
+    avatarUrl: string;
+    avatarAlt: string;
+    userUrl: string;
+    postDate: string;
+  };
+}
+
+export function TextContent(props: ITextContentProps) {
   return (
     <div className={stylesTextContent.textContent}>
       <div className="metaData">
           <div className={stylesUserLink.userLink}>
             <img
               className={stylesUserBlock.avatarImage}
-              src="http://placeimg.com/20/20/nature"
-              alt="avatar"
+              src={props.cardInfo.avatarUrl}
+              alt={props.cardInfo.avatarAlt}
               />
-              <a href="#user-url" className={stylesUserLink.username}>Дмитрий Гришин</a>
+              <a href={props.cardInfo.userUrl} className={stylesUserLink.username}>{props.cardInfo.name}</a>
               <span className={stylesUserBlock.createdAt}>
                 <span className={stylesTextContent.publishedLabel}>Опубликовано</span>
-                4 часа назад
+                {props.cardInfo.postDate}
               </span>
           </div>
         </div>
         <h2 className={stylesTitle.title}>
-          <a href="#post-url" className="post-link">
-          Следует отметить, что новая модель организационной деятельности...
+          <a href={props.cardInfo.postUrl} className="post-link">
+          {props.cardInfo.text}
           </a>
         </h2>
       </div>
