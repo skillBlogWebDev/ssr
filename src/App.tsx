@@ -1,33 +1,22 @@
 import React, { useState } from "react";
 import { hot } from 'react-hot-loader/root';
+import { setConfig } from 'react-hot-loader';
 import { Layout } from "./shared/Layout";
-import './main.global.css';
 import { Header } from "./shared/Header";
 import { Content } from "./shared/Content";
 import { CardsList } from "./shared/CardsList";
-import { MyList } from "./GenericList/GenericList";
-import { generateId } from './utils/react/generateRandomIndex';
-import { merge } from "./utils/js/merge";
+import './main.global.css';
 
-const LIST = [
-    { value: 'some' },
-    { value: 'other some' },
-    { value: 'some' }
-].map(generateId);
+setConfig({
+    showReactDomPatchNotification: false
+});
 
 function AppComponent() {
-    const [list, setList] = useState(LIST);
-
-    const handleItemClick = (id: string) => {
-        setList(list.filter(item => item.id !== id));
-    }
-
     return (
         <Layout>
             <Header />
             <Content>
                 <CardsList />
-                <MyList list={LIST.map(merge({ onClick: handleItemClick }))}/>
             </Content>
         </Layout>
     );
