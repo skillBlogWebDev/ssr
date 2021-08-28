@@ -21,15 +21,20 @@ export function Dropdown({ button, children, isOpen, onClose = NOOP, onOpen = NO
     setIsDropdownOpen(!isDropdownOpen);
   }
 
+  const handleClose = () => {
+    setIsDropdownOpen(false);
+  }
+
   return (
     <div className={styles.container}>
-      <div className="" onClick={handleOpen}>
+      <div className={styles.wrapper} onClick={handleOpen}>
         {button}
       </div>
       {isDropdownOpen && (
         <div className={styles.listContainer}>
-          <div className={styles.list} onClick={() => setIsDropdownOpen(true)}>
+          <div className={styles.list} onClick={() => setIsDropdownOpen(false)}>
             {children}
+            <button className={styles.dropdownClose}>Закрыть</button>
           </div>
         </div>
       )}

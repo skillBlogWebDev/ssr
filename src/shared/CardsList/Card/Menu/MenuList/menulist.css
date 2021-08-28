@@ -1,0 +1,20 @@
+.menuList {
+    padding: 10px 20px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3px 3px 0 0;
+}
+
+.menuListItem:not(:last-child) {
+    padding-bottom: 11px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--greyEC);
+}
+
+.menuListLink {
+    display: flex;
+}
+
+.menuListLink > svg {
+    margin-right: 5px;
+}

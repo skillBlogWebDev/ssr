@@ -26,6 +26,9 @@
     .menuButton {
       align-self: center;
       transform: unset;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
   

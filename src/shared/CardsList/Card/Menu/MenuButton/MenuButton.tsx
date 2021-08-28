@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './menubutton.css';
 
-export function MenuButton() {
+export function MenuButton(props?: any) {
   return (
     <button className={styles.menuButton}>
       <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">

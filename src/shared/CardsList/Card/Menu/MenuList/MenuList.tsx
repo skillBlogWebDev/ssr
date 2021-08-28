@@ -16,15 +16,17 @@ interface IGenericListProps {
 
 export function GenericList({ list }: IGenericListProps) {
   return (
-      <ul>
-          {list.map(({ As = 'div', text, icon, className, id, href }) => (
-              <As
-              className={className}
+      <ul className={styles.menuList}>
+          {list.map(({ As = 'a', text, icon, id, href }) => (
+              <li className={styles.menuListItem}>
+                <As
+              className={styles.menuListLink}
               key={id}
               href={href}
               >
               {icon}{text}
               </As>
+              </li>
           ))}
       </ul>
   );
